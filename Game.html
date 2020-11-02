@@ -45,15 +45,7 @@ backgroundImage.src = 'background.png';
 var bush1Image = new Image();
 bush1Image.src = 'bush1.png'
 
-var bushData = [{
-x: 550,
-y: 100,
-image: bush1Image
-},{
-x: 750,
-y:  90,
-image: bush1Image
-}];
+var bushData = generateBushes();
 
 var nanonautX = CANVAS_WIDTH / 2;
 var nanonautY = GROUND_Y - NANONAUT_HEIGHT;
@@ -67,6 +59,15 @@ window.addEventListener('load', start);
 
 function start() {
 window.requestAnimationFrame(mainloop);
+}
+function generateBushes() {
+var generatedBushData = [];
+		generatedBushData.push({
+		x: 550 + math.random() * CANVAS_WIDTH,
+		y: 80 + Math.random() * 20,
+		image: bush1Image
+			});
+return generatedBushData;
 }
  /////////////////PĘTLA GŁÓWNA/////////////////////
 
